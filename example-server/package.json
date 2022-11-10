@@ -1,0 +1,9 @@
+{
+  "name": "example-server",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "dependencies": {
+    "fastify": "^4.9.2"
+  }
+}

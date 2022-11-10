@@ -1,0 +1,19 @@
+version: "3.9"
+services:
+  streaming-server:
+    build: .
+    ports:
+      - "1935:1935"
+      - "4000:4000/udp"
+      - "3333:3333"
+      - "3334:3334"
+      - "3478:3478"
+      - "9000:9000"
+      - "9999:9999/udp"
+      # So I can access my local server from the container
+    network_mode: "host"        
+    environment:
+      # Set the URL for Webhooks, see https://airensoft.gitbook.io/ovenmediaengine/access-control/admission-webhooks 
+      CONTROL_SERVER_URL: http://localhost:3001/streaming-server
+      # Set the secret key for Webhooks, see https://airensoft.gitbook.io/ovenmediaengine/access-control/admission-webhooks#security
+      CONTROL_SERVER_SECRET_KEY: 83e6efc7-d7c2-4a4c-be64-bb99e2ee096b
